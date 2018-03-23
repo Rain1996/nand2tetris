@@ -1,4 +1,4 @@
-from . import Command
+from . import COMMAND
 # from utils import log_debug
 
 
@@ -58,11 +58,11 @@ class Parser:
         rest = self.command[1:]
         last_ch = self.command[-1]
         if first_ch == '@' and self._check_symbol(rest):
-            return Command.A_COMMAND
+            return COMMAND.A_COMMAND
         elif first_ch == '(' and last_ch == ')':
-            return Command.L_COMMAND
+            return COMMAND.L_COMMAND
         else:
-            return Command.C_COMMAND
+            return COMMAND.C_COMMAND
 
     def symbol(self):
         # log_debug("symbol - command: {}".format(self.command))

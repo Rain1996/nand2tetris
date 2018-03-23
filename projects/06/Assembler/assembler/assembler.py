@@ -1,4 +1,4 @@
-from . import Command
+from . import COMMAND
 from .code import Code
 from .parser import Parser
 from .symbol_table import SymbolTable
@@ -48,9 +48,9 @@ class Assembler:
             # log_debug("instruction - {}".format(instruction))
             parser.advance()
             command_type = parser.command_type()
-            if command_type in (Command.A_COMMAND, Command.C_COMMAND):
+            if command_type in (COMMAND.A_COMMAND, COMMAND.C_COMMAND):
                 instruction += 1
-            elif command_type == Command.L_COMMAND:
+            elif command_type == COMMAND.L_COMMAND:
                 symbol = parser.symbol()
                 # log_debug("L_COMMAND, symbol - {}".format(symbol))
 
@@ -69,16 +69,16 @@ class Assembler:
             line = ''
             parser.advance()
             command_type = parser.command_type()
-            if command_type == Command.A_COMMAND:
+            if command_type == COMMAND.A_COMMAND:
                 symbol = parser.symbol()
                 # log_debug("A_COMMAND, symbol - {}".format(symbol))
 
                 address = self._parse_address(symbol)
                 line = "0{:015b}\n".format(address)
-            elif command_type == Command.L_COMMAND:
+            elif command_type == COMMAND.L_COMMAND:
                 symbol = parser.symbol()
                 # log_debug("L_COMMAND, symbol - {}".format(symbol))
-            elif command_type == Command.C_COMMAND:
+            elif command_type == COMMAND.C_COMMAND:
                 # dest_str = parser.dest()
                 # comp_str = parser.comp()
                 # jump_str = parser.jump()
