@@ -3,8 +3,8 @@ from . import COMMAND
 
 
 class Parser:
-    def __init__(self, input):
-        self.input = input
+    def __init__(self, input_):
+        self.input = input_
         self.command = ''
 
     def reset(self):
