@@ -28,7 +28,6 @@ def translate_single_vm_file(filename):
 
     translator.translate(filename)
 
-    code_writer.write_end()         # 写入asm文件标准结尾
     code_writer.close()
 
 
